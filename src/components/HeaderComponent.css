@@ -1,0 +1,22 @@
+.HeaderComponent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 80px;
+  top: 0;
+  z-index: 1;
+  position: fixed;
+}
+
+.TitleBar {
+  color: rgba(255, 255, 255, 1.0);
+  padding: 30px 0 30px 0;
+  background-color: rgb(8, 8, 8);
+}
+
+.TitleBar h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 1.5em;
+  font-weight: 700;
+}

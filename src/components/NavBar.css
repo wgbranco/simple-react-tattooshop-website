@@ -1,0 +1,57 @@
+.NavBar {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  min-height: 30px;
+  background-color: rgba(10, 10, 10, 0.65);
+}
+
+.NavBar nav {
+  display: table;
+  height: 30px;
+  text-transform: uppercase;
+  /* animation: review-navbar 0.4s cubic-bezier(.17,.67,.71,1.11) 0.5s both; */
+}
+
+.NavBar div {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  min-width: 100px;
+  margin: 0 20px 0 20px;
+  display: table-cell;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.NavBar div:hover, .NavBar div:active  {
+  color: black;
+  background-color: white;
+  transition: all 0.2s ease-in;
+}
+
+.NavBar::before, .NavBar::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  z-index: 2;
+  border-bottom: 30px solid rgba(255, 255, 255, 0.9);
+}
+
+.NavBar::before {
+  left: 0px;
+}
+
+.NavBar::after {
+  right: 0px;
+}
+
+@keyframes review-navbar {
+  from {
+    opacity: 0.5;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1.0;
+    transform: translateY(0);
+  }
+}
