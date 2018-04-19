@@ -12,10 +12,10 @@ class FooterComponent extends Component {
     }
 
     return (
-      <div className="FooterComponent">
+      <footer className="FooterComponent">
         <NavBar options={[]}/>
         <Spacer />
-      </div>
+      </footer>
     );
   }
 }

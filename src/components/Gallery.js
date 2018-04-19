@@ -4,13 +4,13 @@ import { fromEvent } from 'rxjs/observable/fromEvent';
 import { tap, map, mapTo, filter, debounceTime, distinctUntilChanged, withLatestFrom } from 'rxjs/operators';
 import { combineLatest } from 'rxjs/observable/combineLatest';
 import { merge } from 'rxjs/observable/merge';
-
-
+import VisibilitySensor from 'react-visibility-sensor';
 import './Gallery.css';
 
 class Gallery extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       galleryClasses: 'imageGrid loading',
     };
@@ -26,11 +26,13 @@ class Gallery extends Component {
   // }
 
   render() {
-    // TODO: Restart animation when hovering for 0.5sec
+    // TODO: Restart animation when hovering for n sec
+    //
     // Credits to:
     //    'Detection of hover more than specified seconds with RxJS'
     //    http://blog.tmtk.net/post/2017-01-10-hover-with-rxjs/
     // Adapted into RxJS 5.5.x
+    //
     // const gallery = document.querySelectorAll(".imageGrid");
     // console.log(gallery);
     // const enter$ = fromEvent(gallery, "mouseenter");
@@ -79,12 +81,24 @@ class Gallery extends Component {
     }
 
     return (
-      <section id={this.props.sectionId} className="Gallery">
-        <ImagesLoaded
-          className={this.state.galleryClasses}
-          done={this.handleDone}>
-          {listGalleryItems}
-        </ImagesLoaded>
+      <section className="Gallery">
+
+        <VisibilitySensor
+          partialVisibility="top"
+          intervalCheck={false}
+          scrollCheck={true}
+          scrollDelay={150}
+          onChange={this.props.onScroll}>
+
+            <ImagesLoaded
+              id={this.props.sectionId}
+              className={this.state.galleryClasses}
+              done={this.handleDone}>
+              {listGalleryItems}
+            </ImagesLoaded>
+
+        </VisibilitySensor>
+
       </section>
     );
   }

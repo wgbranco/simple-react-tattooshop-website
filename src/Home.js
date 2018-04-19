@@ -7,16 +7,25 @@ import FooterComponent from './components/FooterComponent';
 
 class Home extends Component {
 
-  render() {
-    const title = 'NewSkin Tattoo';
+  constructor(props) {
+    super(props);
 
-    const galleryId = 'gallery';
-    const infoId = 'info';
+    this.title = 'NewSkin Tattoo';
 
-    const options = [
-      {label: 'Galeria', sectionId: galleryId},
-      {label: 'Contato', sectionId: infoId},
+    this.galleryId = 'gallery';
+    this.infoId = 'info';
+
+    this.options = [
+      {label: 'Galeria', sectionId: this.galleryId, active: false},
+      {label: 'Contato', sectionId: this.infoId, active: false},
     ];
+
+    this.state = {
+      options: this.options,
+    };
+  }
+
+  render() {
 
     const listImages = [
       {
@@ -69,13 +78,35 @@ class Home extends Component {
       }
     ];
 
+    const onChangeSectionVisibility = (sectionId) => (isVisible) => {
+      let option = this.options.filter((item) => item.sectionId === sectionId);
+
+      if (option && option[0] && (option[0].active !== isVisible))
+      {
+        option[0].active = isVisible;
+        this.setState({ options: this.options });
+      }
+    };
+
     return (
       <div className="Home">
-        <HeaderComponent title={title} navOptions={options}/>
+        <HeaderComponent
+          title={this.title}
+          navOptions={this.state.options}/>
+
         <main>
-          <Gallery sectionId={galleryId} listImages={listImages}/>
-          <Info sectionId={infoId}></Info>
+          <Gallery
+            sectionId={this.galleryId}
+            listImages={listImages}
+            onScroll={onChangeSectionVisibility(this.galleryId)}
+          />
+
+          <Info
+            sectionId={this.infoId}
+            onScroll={onChangeSectionVisibility(this.infoId)}
+          />
         </main>
+
         <FooterComponent/>
       </div>
     );

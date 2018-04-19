@@ -1,15 +1,16 @@
 .Gallery {
   display: flex;
+  align-items: center;
   justify-content: center;
   z-index: 0;
+  width: 100%;
 }
 
 .imageGrid {
   display: flex;
   flex-wrap: wrap;
-  width: 85%;
-  max-width: 700px;
-  margin: 130px 0 30px 0;
+  max-height: 68vh;
+  max-width: calc(3*30vmin);
   align-content: stretch;
   justify-content: center;
   overflow: hidden;
@@ -17,9 +18,9 @@
 
 .imageGrid img {
   display: block;
-  height: 220px;
-  width: 220px;
-  padding: 10px;
+  height: 28vmin;
+  width: 28vmin;
+  margin: 1vmin;
   object-fit: cover;
   filter: contrast(1.1) grayscale(100%);
 }

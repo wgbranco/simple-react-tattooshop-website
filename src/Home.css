@@ -1,10 +1,13 @@
 .Home {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 100%;
   text-align: center;
   background-color: rgb(8, 8, 8);
+}
+
+.Home main section {
+  height: 100vh;
+  padding: 14vh 0 14vh 0;
 }
 
 /* Portrait orientation lock */

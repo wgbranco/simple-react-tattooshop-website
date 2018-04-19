@@ -1,12 +1,15 @@
-.Info {
+.Info, .Info .container {
   display: flex;
+  align-items: center;
   justify-content: center;
-  margin: 150px 0 110px 0;
+}
+
+.Info {
   z-index: 0;
+  width: 100%;
 }
 
 .Info .container {
-  width: 85%;
-  max-width: 640px; /* 700px - padding */
-  min-height: 400px;
+  height: 68vh;
+  width: calc(3*210px);
 }
