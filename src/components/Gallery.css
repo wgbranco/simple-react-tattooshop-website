@@ -58,10 +58,29 @@
   100% {filter: contrast(1.1) grayscale(100%);}
 }
 
-@media screen and (max-width:540px) {
+@media screen and (orientation: portrait) {
+  .imageGrid {
+    max-width: calc(2*30vmin);
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .imageGrid {
+    max-height: 100%;
+    max-width: 100%;
+  }
+
+  .imageGrid img {
+    height: auto;
+    width: 100%;
+    margin: 15px 0;
+  }
+}
+
+/* @media screen and (max-width:540px) {
   .imageGrid img {
     width: 90%;
     height: auto;
     margin: 0 auto 0 auto;
   }
-}
+} */

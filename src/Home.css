@@ -10,6 +10,12 @@
   padding: 14vh 0 14vh 0;
 }
 
+@media screen and (max-width: 450px) {
+  .Home main section {
+    height: 100%;
+  }
+}
+
 /* Portrait orientation lock */
 /* @media screen and (orientation: landscape) {
   html {
