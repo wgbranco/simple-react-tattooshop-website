@@ -10,7 +10,6 @@
   display: table;
   height: 100%;
   text-transform: uppercase;
-  /* animation: review-navbar 0.4s cubic-bezier(.17,.67,.71,1.11) 0.5s both; */
 }
 
 .NavBar .NavButton {
@@ -45,20 +44,8 @@
   right: 0px;
 }
 
-@keyframes review-navbar {
-  from {
-    opacity: 0.5;
-    transform: translateY(-100%);
-  }
-  to {
-    opacity: 1.0;
-    transform: translateY(0);
-  }
-}
-
-@media screen and (max-width: 450px) {
-  .NavBar::before, .NavBar::after {
-    content: '';
+@media screen and (max-width: 500px) {
+  .NavBar::after, .NavBar::before {
     border-bottom: none;
   }
 }

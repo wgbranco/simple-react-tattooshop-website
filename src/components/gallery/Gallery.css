@@ -9,7 +9,6 @@
 .imageGrid {
   display: flex;
   flex-wrap: wrap;
-  max-height: 68vh;
   max-width: calc(3*30vmin);
   align-content: stretch;
   justify-content: center;
@@ -60,27 +59,42 @@
 
 @media screen and (orientation: portrait) {
   .imageGrid {
-    max-width: calc(2*30vmin);
+    width: calc(2*22vh);
+  }
+
+  .imageGrid img {
+    height: 20vh;
+    width: 20vh;
   }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (orientation: landscape) and (max-height: 600px) {
   .imageGrid {
-    max-height: 100%;
     max-width: 100%;
+  }
+
+  .imageGrid img {
+    height: 56vh;
+    width: 56vh;
+    margin: 8vh 1vw 8vh 1vw;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .imageGrid {
+    height: 100%;
+    width: 100%;
+    max-width: none;
   }
 
   .imageGrid img {
     height: auto;
     width: 100%;
-    margin: 15px 0;
+    margin: 0;
+    padding: 2vw 4vw 2vw 4vw;
+  }
+
+  .imageGrid.loaded a img {
+    animation-play-state: paused !important;
   }
 }
-
-/* @media screen and (max-width:540px) {
-  .imageGrid img {
-    width: 90%;
-    height: auto;
-    margin: 0 auto 0 auto;
-  }
-} */

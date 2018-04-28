@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
 import ImagesLoaded from 'react-images-loaded';
-import { fromEvent } from 'rxjs/observable/fromEvent';
-import { tap, map, mapTo, filter, debounceTime, distinctUntilChanged, withLatestFrom } from 'rxjs/operators';
-import { combineLatest } from 'rxjs/observable/combineLatest';
-import { merge } from 'rxjs/observable/merge';
-import VisibilitySensor from 'react-visibility-sensor';
 import './Gallery.css';
 
 class Gallery extends Component {
@@ -81,24 +76,12 @@ class Gallery extends Component {
     }
 
     return (
-      <section className="Gallery">
-
-        <VisibilitySensor
-          partialVisibility="top"
-          intervalCheck={false}
-          scrollCheck={true}
-          scrollDelay={150}
-          onChange={this.props.onScroll}>
-
-            <ImagesLoaded
-              id={this.props.sectionId}
-              className={this.state.galleryClasses}
-              done={this.handleDone}>
-              {listGalleryItems}
-            </ImagesLoaded>
-
-        </VisibilitySensor>
-
+      <section id={this.props.sectionId} className="Gallery">
+        <ImagesLoaded
+          className={this.state.galleryClasses}
+          done={this.handleDone}>
+          {listGalleryItems}
+        </ImagesLoaded>
       </section>
     );
   }

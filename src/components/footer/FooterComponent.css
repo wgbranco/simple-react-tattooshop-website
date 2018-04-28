@@ -1,0 +1,40 @@
+.FooterComponent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 14vh;
+  bottom: 0;
+  z-index: 2;
+  position: fixed;
+}
+
+.Spacer {
+  min-width: 100%;
+  height: 10vh; /* same as TitleBar */
+  background-color: rgb(8, 8, 8);
+  z-index: inherit;
+}
+
+.Hline {
+  display: none;
+  z-index: inherit;
+}
+
+@media screen and (max-width: 450px) {
+  .Hline {
+    display: block;
+    width: 92%;
+    margin: 0 auto 0 auto;
+    border-top: 3px solid white;
+  }
+
+  #BottomMenu {
+    transition: all 0.3s;
+  }
+
+  #BottomMenu.gone {
+    transition: all 0.3s;
+    transform: translateY(4vh);
+    z-index: -1;
+  }
+}

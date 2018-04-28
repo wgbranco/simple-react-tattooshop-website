@@ -6,16 +6,17 @@ class NavButton extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      buttonClasses: 'NavButton',
+      buttonClasses: 'NavButton'
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    // console.log('componentWillReceiveProps');
-    this.state.buttonClasses = nextProps.active
-    ? 'NavButton active'
-    : 'NavButton';
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   let buttonClasses = nextProps.active
+  //   ? 'NavButton active'
+  //   : 'NavButton';
+  //
+  //   this.setState({buttonClasses: buttonClasses});
+  // }
 
   render() {
     const scrollToElement = sectionId => e => {
@@ -31,7 +32,6 @@ class NavButton extends Component {
       </div>
     );
   }
-
 }
 
 export default NavButton;

@@ -4,7 +4,7 @@
   width: 100%;
   height: 14vh; /* TitleBar 10vh + NavBar 4vh*/
   top: 0;
-  z-index: 1;
+  z-index: 2;
   position: fixed;
 }
 
@@ -16,6 +16,7 @@
   padding: auto 0 auto 0;
   height: 10vh;
   background-color: rgb(8, 8, 8);
+  z-index: inherit;
 }
 
 .TitleBar h1 {
@@ -23,4 +24,28 @@
   padding: 0;
   font-size: 1.6em;
   font-weight: 700;
+}
+
+.Hline {
+  display: none;
+  z-index: inherit;
+}
+
+@media screen and (max-width: 450px) {
+  #TopMenu {
+    transition: all 0.3s;
+  }
+
+  #TopMenu.gone {
+    transition: all 0.3s;
+    transform: translateY(-4vh);
+    z-index: -1;
+  }
+
+  .Hline {
+    display: block;
+    width: 92%;
+    margin: 0 auto 0 auto;
+    border-top: 3px solid white;
+  }
 }

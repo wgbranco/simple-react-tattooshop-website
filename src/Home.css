@@ -10,21 +10,10 @@
   padding: 14vh 0 14vh 0;
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 500px),
+screen and (orientation: landscape) and (max-height: 600px)
+{
   .Home main section {
     height: 100%;
   }
 }
-
-/* Portrait orientation lock */
-/* @media screen and (orientation: landscape) {
-  html {
-    transform: rotate(-90deg);
-    transform-origin: left top;
-    width: 100vh;
-    overflow-x: hidden;
-    position: absolute;
-    top: 100%;
-    left: 0;
-  }
-} */

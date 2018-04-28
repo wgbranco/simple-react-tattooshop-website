@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './Home.css';
-import HeaderComponent from './components/HeaderComponent';
-import Gallery from './components/Gallery';
-import Info from './components/Info';
-import FooterComponent from './components/FooterComponent';
+import HeaderComponent from './components/header/HeaderComponent';
+import Gallery from './components/gallery/Gallery';
+import Info from './components/info/Info';
+import FooterComponent from './components/footer/FooterComponent';
 
 class Home extends Component {
 
@@ -16,13 +16,9 @@ class Home extends Component {
     this.infoId = 'info';
 
     this.options = [
-      {label: 'Galeria', sectionId: this.galleryId, active: false},
-      {label: 'Contato', sectionId: this.infoId, active: false},
+      {label: 'Galeria', sectionId: this.galleryId},
+      {label: 'Contato', sectionId: this.infoId},
     ];
-
-    this.state = {
-      options: this.options,
-    };
   }
 
   render() {
@@ -78,32 +74,20 @@ class Home extends Component {
       }
     ];
 
-    const onChangeSectionVisibility = (sectionId) => (isVisible) => {
-      let option = this.options.filter((item) => item.sectionId === sectionId);
-
-      if (option && option[0] && (option[0].active !== isVisible))
-      {
-        option[0].active = isVisible;
-        this.setState({ options: this.options });
-      }
-    };
-
     return (
       <div className="Home">
         <HeaderComponent
           title={this.title}
-          navOptions={this.state.options}/>
+          navOptions={this.options}/>
 
         <main>
           <Gallery
             sectionId={this.galleryId}
             listImages={listImages}
-            onScroll={onChangeSectionVisibility(this.galleryId)}
           />
 
           <Info
             sectionId={this.infoId}
-            onScroll={onChangeSectionVisibility(this.infoId)}
           />
         </main>
 
